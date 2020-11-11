@@ -5,20 +5,24 @@
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "scripts": {
+    "postinstall": "yarn-deduplicate || exit 0",
     "start": "vercel dev"
   },
   "dependencies": {
-    "playwright": "^1.6.0-next.1605048563081"
+    "chrome-aws-lambda": "^5.3.1",
+    "puppeteer-core": "^5.4.1"
   },
   "devDependencies": {
     "@1stg/eslint-config": "^0.20.5",
     "@1stg/prettier-config": "^0.10.5",
     "@1stg/tsconfig": "^0.10.3",
+    "@types/puppeteer-core": "^2.0.0",
     "@vercel/node": "^1.8.4",
     "eslint": "^7.13.0",
     "prettier": "^2.1.2",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5",
-    "vercel": "^20.1.2"
+    "vercel": "^20.1.2",
+    "yarn-deduplicate": "^3.1.0"
   }
 }

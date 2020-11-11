@@ -1,5 +1,7 @@
 import { NowRequest, NowRequestQuery, NowResponse } from '@vercel/node'
-import playwright from 'playwright'
+import puppeteer from 'puppeteer-core'
+
+import { getOptions } from '../../_lib'
 
 export interface RequestParams extends NowRequestQuery {
   user: string
@@ -11,23 +13,23 @@ export interface DownloadInfo {
   download_url: string
 }
 
-const BROWSERS = ['chromium', 'firefox', 'webkit'] as const
-
 const NOT_FOUND = 404
 
 const RELEASE_SECTIONS_SELECTOR = '[data-test-class="release"]'
+
+const isDev = process.env.NODE_ENV === 'development'
 
 const getDownloadInfo = ({
   page,
   user,
   app,
 }: {
-  page: playwright.Page
+  page: puppeteer.Page
   user: string
   app: string
 }) =>
   new Promise<DownloadInfo>((resolve, reject) => {
-    const handler = (response: playwright.Response) => {
+    const handler = (response: puppeteer.Response) => {
       if (
         response
           .url()
@@ -48,24 +50,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
   const [versionPrefix, versionSuffix = versionPrefix] = version.split(',')
 
-  let browser: playwright.Browser | undefined
-  let error: Error | undefined
-
-  for (const type of BROWSERS) {
-    try {
-      browser = await playwright[type].launch()
-    } catch (err) {
-      if (err instanceof Error) {
-        error = err
-      }
-      continue
-    }
-  }
-
-  if (!browser) {
-    throw error
-  }
-
+  const browser = await puppeteer.launch(await getOptions(isDev))
   const page = await browser.newPage()
 
   await page.goto(
