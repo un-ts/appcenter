@@ -1,5 +1,5 @@
 import { NowRequest, NowRequestQuery, NowResponse } from '@vercel/node'
-import puppeteer from 'puppeteer'
+import playwright from 'playwright'
 
 export interface RequestParams extends NowRequestQuery {
   user: string
@@ -11,6 +11,8 @@ export interface DownloadInfo {
   download_url: string
 }
 
+const BROWSERS = ['chromium', 'firefox', 'webkit'] as const
+
 const NOT_FOUND = 404
 
 const RELEASE_SECTIONS_SELECTOR = '[data-test-class="release"]'
@@ -20,12 +22,12 @@ const getDownloadInfo = ({
   user,
   app,
 }: {
-  page: puppeteer.Page
+  page: playwright.Page
   user: string
   app: string
 }) =>
   new Promise<DownloadInfo>((resolve, reject) => {
-    const handler = (response: puppeteer.Response) => {
+    const handler = (response: playwright.Response) => {
       if (
         response
           .url()
@@ -46,7 +48,24 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
   const [versionPrefix, versionSuffix = versionPrefix] = version.split(',')
 
-  const browser = await puppeteer.launch()
+  let browser: playwright.Browser | undefined
+  let error: Error | undefined
+
+  for (const type of BROWSERS) {
+    try {
+      browser = await playwright[type].launch()
+    } catch (err) {
+      if (err instanceof Error) {
+        error = err
+      }
+      continue
+    }
+  }
+
+  if (!browser) {
+    throw error
+  }
+
   const page = await browser.newPage()
 
   await page.goto(
@@ -70,7 +89,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
   const index = await page.$$eval(
     RELEASE_SECTIONS_SELECTOR,
-    (els, versionPrefix, versionSuffix) => {
+    (els, [versionPrefix, versionSuffix]) => {
       const index = els.findIndex(
         el =>
           el.firstElementChild!.firstElementChild!.firstElementChild!
@@ -82,8 +101,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
       }
       return index
     },
-    versionPrefix,
-    versionSuffix,
+    [versionPrefix, versionSuffix],
   )
 
   if (index === -1) {

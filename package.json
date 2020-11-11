@@ -8,13 +8,12 @@
     "start": "vercel dev"
   },
   "dependencies": {
-    "puppeteer": "^5.4.1"
+    "playwright": "^1.6.0-next.1605048563081"
   },
   "devDependencies": {
     "@1stg/eslint-config": "^0.20.5",
     "@1stg/prettier-config": "^0.10.5",
     "@1stg/tsconfig": "^0.10.3",
-    "@types/puppeteer": "^5.4.0",
     "@vercel/node": "^1.8.4",
     "eslint": "^7.13.0",
     "prettier": "^2.1.2",
