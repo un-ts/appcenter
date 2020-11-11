@@ -4,13 +4,13 @@ Stable link that redirects to unstable [App Center][] download link via Vercel w
 
 ## Usage
 
-`https://appcenter.vercel.app/api/{user}/{app}/{version}`
+`https://appcenter.vercel.app/{user}/{app}/{version}`
 
 ## Examples
 
-1. `ClashX Pro`: https://appcenter.vercel.app/api/clashx/clashx-pro/1.30.3.2
+1. `ClashX Pro`: https://appcenter.vercel.app/clashx/clashx-pro/1.30.3.2
 
-2. `Timeless`: https://appcenter.vercel.app/api/dangercove/timeless/2020.7,37 (Notice the `,` mark here)
+2. `Timeless`: https://appcenter.vercel.app/dangercove/timeless/2020.7,37 (Notice the `,` mark here)
 
    ![Timeless](https://user-images.githubusercontent.com/8336744/98822766-30e03500-246c-11eb-8cab-f7c31d196f5a.png)
 

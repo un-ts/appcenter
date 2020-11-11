@@ -5,7 +5,7 @@
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "scripts": {
-    "build": "mv README.md public/index.md",
+    "build": "ts-node scripts/build",
     "postinstall": "yarn-deduplicate || exit 0",
     "start": "vercel dev"
   },
@@ -20,6 +20,7 @@
     "@1stg/lint-staged": "^0.14.4",
     "@1stg/prettier-config": "^0.10.5",
     "@1stg/tsconfig": "^0.10.3",
+    "@octokit/request": "^5.4.10",
     "@types/puppeteer-core": "^2.0.0",
     "@vercel/node": "^1.8.4",
     "commitlint": "^11.0.0",

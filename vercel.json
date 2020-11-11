@@ -1,14 +1,8 @@
 {
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@now/static-build"
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.+)",
-      "destination": "/api"
+      "destination": "/api/$1"
     }
   ]
 }
