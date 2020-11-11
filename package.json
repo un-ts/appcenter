@@ -1,0 +1,25 @@
+{
+  "name": "appcenter",
+  "version": "0.1.0",
+  "repository": "git@github.com:rx-ts/appcenter.git",
+  "author": "JounQin <admin@1stg.me>",
+  "license": "MIT",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "puppeteer": "^5.4.1"
+  },
+  "devDependencies": {
+    "@1stg/eslint-config": "^0.20.5",
+    "@1stg/prettier-config": "^0.10.5",
+    "@1stg/tsconfig": "^0.10.3",
+    "@types/puppeteer": "^5.4.0",
+    "@vercel/node": "^1.8.4",
+    "eslint": "^7.13.0",
+    "prettier": "^2.1.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5",
+    "vercel": "^20.1.2"
+  }
+}
