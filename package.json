@@ -5,6 +5,7 @@
   "author": "JounQin <admin@1stg.me>",
   "license": "MIT",
   "scripts": {
+    "build": "mv README.md public/index.md",
     "postinstall": "yarn-deduplicate || exit 0",
     "start": "vercel dev"
   },
@@ -13,16 +14,32 @@
     "puppeteer-core": "^5.4.1"
   },
   "devDependencies": {
+    "@1stg/commitlint-config": "^0.5.6",
     "@1stg/eslint-config": "^0.20.5",
+    "@1stg/husky-config": "^0.7.3",
+    "@1stg/lint-staged": "^0.14.4",
     "@1stg/prettier-config": "^0.10.5",
     "@1stg/tsconfig": "^0.10.3",
     "@types/puppeteer-core": "^2.0.0",
     "@vercel/node": "^1.8.4",
+    "commitlint": "^11.0.0",
     "eslint": "^7.13.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
     "prettier": "^2.1.2",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5",
     "vercel": "^20.1.2",
     "yarn-deduplicate": "^3.1.0"
+  },
+  "commitlint": {
+    "extends": "@1stg"
+  },
+  "eslintConfig": {
+    "extends": "@1stg"
+  },
+  "prettier": "@1stg/prettier-config",
+  "renovate": {
+    "extends": "@1stg"
   }
 }
