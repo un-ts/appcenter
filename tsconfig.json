@@ -1,6 +1,7 @@
 {
   "extends": "@1stg/tsconfig/node",
   "compilerOptions": {
-    "baseUrl": "."
+    "lib": ["DOM", "ESNext"],
+    "strictFunctionTypes": false
   }
 }

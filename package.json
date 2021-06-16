@@ -6,32 +6,24 @@
   "license": "MIT",
   "scripts": {
     "build": "ts-node scripts/build",
-    "postinstall": "yarn-deduplicate || exit 0",
+    "lint": "run-p lint:*",
+    "lint:es": "eslint . --cache",
+    "lint:tsc": "tsc --noEmit",
+    "prepare": "simple-git-hooks && yarn-deduplicate --strategy fewer || exit 0",
     "start": "vercel dev"
   },
   "dependencies": {
-    "chrome-aws-lambda": "^5.3.1",
-    "puppeteer-core": "^5.4.1"
+    "chrome-aws-lambda": "^10.0.0",
+    "puppeteer-core": "^10.0.0"
   },
   "devDependencies": {
-    "@1stg/commitlint-config": "^0.5.6",
-    "@1stg/eslint-config": "^0.20.5",
-    "@1stg/husky-config": "^0.7.3",
-    "@1stg/lint-staged": "^0.14.4",
-    "@1stg/prettier-config": "^0.10.5",
-    "@1stg/tsconfig": "^0.10.3",
-    "@octokit/request": "^5.4.10",
-    "@types/puppeteer-core": "^2.0.0",
-    "@vercel/node": "^1.8.4",
-    "commitlint": "^11.0.0",
-    "eslint": "^7.13.0",
-    "husky": "^4.3.0",
-    "lint-staged": "^10.5.1",
-    "prettier": "^2.1.2",
-    "ts-node": "^9.0.0",
-    "typescript": "^4.0.5",
-    "vercel": "^20.1.2",
-    "yarn-deduplicate": "^3.1.0"
+    "@1stg/common-config": "^2.2.0",
+    "@octokit/request": "^5.6.0",
+    "@types/puppeteer-core": "^5.4.0",
+    "@vercel/node": "^1.11.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2",
+    "vercel": "^23.0.1"
   },
   "commitlint": {
     "extends": "@1stg"
@@ -39,8 +31,13 @@
   "eslintConfig": {
     "extends": "@1stg"
   },
+  "eslintIgnore": [
+    "!/.*.js"
+  ],
   "prettier": "@1stg/prettier-config",
   "renovate": {
-    "extends": "@1stg"
+    "extends": [
+      "@1stg"
+    ]
   }
 }
