@@ -4,7 +4,7 @@ Stable link that redirects to unstable [App Center][] download link via Vercel w
 
 ## Usage
 
-`https://appcenter.vercel.app/{user}/{app}/{version}`
+`https://appcenter.vercel.app/{owner}/{app}/{version}`
 
 ## Examples
 

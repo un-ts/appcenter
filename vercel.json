@@ -4,5 +4,8 @@
       "source": "/(.+)",
       "destination": "/api/$1"
     }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }
