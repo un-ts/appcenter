@@ -1,9 +1,9 @@
-import { NowRequest, NowRequestQuery, NowResponse } from '@vercel/node'
+import { VercelRequest, VercelRequestQuery, VercelResponse } from '@vercel/node'
 import puppeteer from 'puppeteer-core'
 
 import { getOptions } from '../../_lib'
 
-export interface RequestParams extends NowRequestQuery {
+export interface RequestParams extends VercelRequestQuery {
   user: string
   app: string
   version: string
@@ -29,7 +29,7 @@ const getDownloadInfo = ({
   app: string
 }) =>
   new Promise<DownloadInfo>((resolve, reject) => {
-    const handler = (response: puppeteer.Response) => {
+    const handler = (response: puppeteer.HTTPResponse) => {
       if (
         response
           .url()
@@ -45,7 +45,10 @@ const getDownloadInfo = ({
     setTimeout(reject, 5 * 1000)
   })
 
-export default async (req: NowRequest, res: NowResponse): Promise<void> => {
+export default async (
+  req: VercelRequest,
+  res: VercelResponse,
+): Promise<void> => {
   const { user, app, version } = req.query as RequestParams
 
   const [versionPrefix, versionSuffix = versionPrefix] = version.split(',')
@@ -74,7 +77,7 @@ export default async (req: NowRequest, res: NowResponse): Promise<void> => {
 
   const index = await page.$$eval(
     RELEASE_SECTIONS_SELECTOR,
-    (els, [versionPrefix, versionSuffix]) => {
+    (els, [versionPrefix, versionSuffix]: [string, string]) => {
       const index = els.findIndex(
         el =>
           el.firstElementChild!.firstElementChild!.firstElementChild!

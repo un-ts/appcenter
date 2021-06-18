@@ -17,20 +17,15 @@ interface Options {
   headless: boolean
 }
 
-export async function getOptions(isDev: boolean) {
-  let options: Options
-  if (isDev) {
-    options = {
-      args: [],
-      executablePath: exePath,
-      headless: true,
-    }
-  } else {
-    options = {
-      args: chrome.args,
-      executablePath: await chrome.executablePath,
-      headless: chrome.headless,
-    }
-  }
-  return options
-}
+export const getOptions = async (isDev: boolean): Promise<Options> =>
+  isDev
+    ? {
+        args: [],
+        executablePath: exePath,
+        headless: true,
+      }
+    : {
+        args: chrome.args,
+        executablePath: await chrome.executablePath,
+        headless: chrome.headless,
+      }
