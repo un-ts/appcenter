@@ -7,6 +7,7 @@ import { request } from '@octokit/request'
  */
 request('POST /markdown', {
   text: fs.readFileSync('README.md', 'utf8'),
+  token: process.env.GITHUB_TOKEN,
 }).then(response => {
   fs.writeFileSync(
     'public/index.html',
