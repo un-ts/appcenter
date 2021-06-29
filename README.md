@@ -1,6 +1,6 @@
 # App Center
 
-Stable link that redirects to unstable [App Center][] download link via Vercel with puppeteer.
+Stable link that redirects to unstable [App Center][] download link via Vercel.
 
 ## Usage
 
