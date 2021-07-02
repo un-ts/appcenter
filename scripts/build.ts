@@ -1,17 +1,20 @@
-import fs from 'fs'
+import fs from 'node:fs/promises'
 
 import { request } from '@octokit/request'
 
-/**
- * @link https://github.com/sindresorhus/github-markdown-css
- */
-request('POST /markdown', {
-  text: fs.readFileSync('README.md', 'utf8'),
-  token: process.env.GITHUB_TOKEN,
-}).then(response => {
-  fs.writeFileSync(
+const main = async () => {
+  /**
+   * @link https://github.com/sindresorhus/github-markdown-css
+   */
+  const { data } = await request('POST /markdown', {
+    text: await fs.readFile('README.md', 'utf8'),
+    token: process.env.GITHUB_TOKEN,
+  })
+
+  await fs.writeFile(
     'public/index.html',
-    /* HTML */ `<!DOCTYPE html>
+    /* HTML */ `
+      <!DOCTYPE html>
       <html lang="en">
         <head>
           <meta charset="UTF-8" />
@@ -41,8 +44,11 @@ request('POST /markdown', {
           </style>
         </head>
         <body>
-          <article class="markdown-body">${String(response.data)}</article>
+          <article class="markdown-body">${data}</article>
         </body>
-      </html>`,
+      </html>
+    `,
   )
-}, console.error)
+}
+
+main().catch(console.error)
