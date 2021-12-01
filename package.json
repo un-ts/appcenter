@@ -13,7 +13,7 @@
     "start": "vercel dev"
   },
   "dependencies": {
-    "got": "^11.8.2"
+    "got": "^11.8.3"
   },
   "devDependencies": {
     "@1stg/common-config": "^2.4.0",
