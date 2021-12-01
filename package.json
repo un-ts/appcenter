@@ -16,7 +16,7 @@
     "got": "^11.8.3"
   },
   "devDependencies": {
-    "@1stg/common-config": "^2.4.0",
+    "@1stg/common-config": "^2.5.2",
     "@octokit/request": "^5.6.2",
     "@vercel/node": "^1.12.1",
     "ts-node": "^10.2.1",
