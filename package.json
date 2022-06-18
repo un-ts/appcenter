@@ -14,7 +14,7 @@
     "start": "vc dev"
   },
   "dependencies": {
-    "got": "^11.8.3"
+    "got": "^12.1.0"
   },
   "devDependencies": {
     "@1stg/common-config": "^4.0.0",
