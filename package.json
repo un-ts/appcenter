@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "type": "module",
   "repository": "git@github.com:rx-ts/appcenter.git",
-  "author": "JounQin <admin@1stg.me>",
+  "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "license": "MIT",
   "scripts": {
-    "build": "ts-node-esm scripts/build",
+    "build": "tsx scripts/build",
     "lint": "run-p lint:*",
     "lint:es": "eslint . --cache",
     "lint:tsc": "tsc --noEmit",
@@ -14,17 +14,18 @@
     "start": "vc dev"
   },
   "dependencies": {
-    "got": "^11.8.3"
+    "got": "^11.8.5"
   },
   "devDependencies": {
-    "@1stg/common-config": "^4.0.0",
-    "@octokit/request": "^5.6.3",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.4",
-    "vercel": "^24.2.0"
+    "@1stg/common-config": "^6.0.0",
+    "@octokit/request": "^6.0.1",
+    "tsx": "^3.7.1",
+    "typescript": "^4.7.4",
+    "vercel": "^27.0.0",
+    "yarn-deduplicate": "^5.0.0"
   },
   "resolutions": {
-    "prettier": "^2.6.2"
+    "prettier": "^2.7.1"
   },
   "commitlint": {
     "extends": "@1stg"
