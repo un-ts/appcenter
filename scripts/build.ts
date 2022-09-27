@@ -51,4 +51,5 @@ const main = async () => {
   )
 }
 
+// eslint-disable-next-line unicorn/prefer-top-level-await
 main().catch(console.error)
