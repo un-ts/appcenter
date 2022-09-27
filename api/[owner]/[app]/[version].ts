@@ -1,7 +1,4 @@
-import { VercelRequest, VercelRequestQuery, VercelResponse } from '@vercel/node'
-import got from 'got'
-
-export interface RequestParams extends VercelRequestQuery {
+export interface RequestParams {
   owner: string
   app: string
   version: string
@@ -17,13 +14,21 @@ export interface DownloadInfo {
   download_url: string
 }
 
+const REDIRECT = 302
 const NOT_FOUND = 404
 
-export default async (
-  req: VercelRequest,
-  res: VercelResponse,
-): Promise<void> => {
-  let { owner, app, version } = req.query as RequestParams
+export const config = {
+  runtime: 'experimental-edge',
+}
+
+export default async (req: Request): Promise<Response> => {
+  const url = new URL(req.url, 'https://example.com')
+
+  const searchParams = url.searchParams
+
+  const owner = searchParams.get('owner')!
+  const app = searchParams.get('app')!
+  let version = searchParams.get('version')!
 
   if (version.includes(',')) {
     version = version.split(',')[0]
@@ -36,27 +41,36 @@ export default async (
 
   console.log(`Fetching ${releasesUrl}`)
 
-  const releases = await got(releasesUrl).json<ReleaseInfo[]>()
+  const releasesRes = await fetch(releasesUrl)
+  const releases = (await releasesRes.json()) as ReleaseInfo[]
 
   const matched = releases.find(
     it => it.version === version || it.short_version === version,
   )
 
   if (!matched) {
-    res.status(NOT_FOUND)
-    res.send(`No matched version ${version} found for ${owner}/${app}`)
-    return
+    return new Response(
+      `No matched version ${version} found for ${owner}/${app}`,
+      {
+        status: NOT_FOUND,
+      },
+    )
   }
 
   const releaseUrl = `https://install.appcenter.ms/api/v0.1/apps/${owner}/${app}/distribution_groups/public/releases/${matched.id}`
 
   console.log(`Fetching ${releaseUrl}`)
 
-  const { download_url: downloadUrl } = await got(
-    releaseUrl,
-  ).json<DownloadInfo>()
+  const downloadInfoRes = await fetch(releaseUrl)
+  const { download_url: downloadUrl } =
+    (await downloadInfoRes.json()) as DownloadInfo
 
   console.log(`Redirect to ${downloadUrl}`)
 
-  res.redirect(downloadUrl)
+  return new Response(null, {
+    status: REDIRECT,
+    headers: {
+      Location: downloadUrl,
+    },
+  })
 }
