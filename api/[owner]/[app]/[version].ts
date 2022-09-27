@@ -1,9 +1,3 @@
-export interface RequestParams {
-  owner: string
-  app: string
-  version: string
-}
-
 export interface ReleaseInfo {
   id: string
   version: string
