@@ -8,7 +8,6 @@ export interface DownloadInfo {
   download_url: string
 }
 
-const REDIRECT = 302
 const NOT_FOUND = 404
 
 export const config = {
@@ -59,10 +58,5 @@ export default async (req: Request): Promise<Response> => {
 
   console.log(`Redirect to ${downloadUrl}`)
 
-  return new Response(null, {
-    status: REDIRECT,
-    headers: {
-      Location: downloadUrl,
-    },
-  })
+  return Response.redirect(downloadUrl)
 }
