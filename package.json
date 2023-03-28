@@ -2,7 +2,7 @@
   "name": "appcenter",
   "version": "0.1.0",
   "type": "module",
-  "repository": "git@github.com:rx-ts/appcenter.git",
+  "repository": "git+https://github.com/un-ts/appcenter.git",
   "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "license": "MIT",
   "scripts": {
