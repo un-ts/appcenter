@@ -12,13 +12,11 @@ const REDIRECT = 302
 const NOT_FOUND = 404
 
 export const config = {
-  runtime: 'experimental-edge',
+  runtime: 'edge',
 }
 
 export default async (req: Request): Promise<Response> => {
-  const url = new URL(req.url, 'https://example.com')
-
-  const searchParams = url.searchParams
+  const { searchParams } = new URL(req.url)
 
   const owner = searchParams.get('owner')!
   const app = searchParams.get('app')!
