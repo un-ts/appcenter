@@ -1,4 +1,5 @@
 .*cache
 .vercel
+*.tsbuildinfo
 /public/index.html
 node_modules
