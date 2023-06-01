@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@1stg/common-config": "^7.2.0",
-    "@octokit/request": "^6.2.3",
+    "@octokit/request": "^6.2.5",
     "@types/web": "^0.0.99",
     "tsx": "^3.12.7",
     "typescript": "^5.0.3",
