@@ -2591,10 +2591,10 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
   integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
 
-"@types/web@^0.0.114":
-  version "0.0.114"
-  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.114.tgz#468e69265d7d9e5872a51e0df05a6bc40e5a5434"
-  integrity sha512-nrkwsB8u0VNHwElFSl6ZCgu0BCbsQu5BPq7mJtBpW7rYBmiLZNWE5KqcHDw8GXQMqWsnFB3EnXsAx7UysQwcMg==
+"@types/web@^0.0.115":
+  version "0.0.115"
+  resolved "https://registry.yarnpkg.com/@types/web/-/web-0.0.115.tgz#3cb822c1bb74ddf0575fe3fc6ee937c93c4f8e9f"
+  integrity sha512-IBtUgtxnITC7WTCg4tv6kCnSP0T+fM+3PzQPIzLzJY1DDlhBFKM/9+uMURw14YweWPDiFNIZ94Gc1bJtwow97g==
 
 "@typescript-eslint/eslint-plugin@^5.38.0":
   version "5.57.0"
