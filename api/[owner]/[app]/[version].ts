@@ -10,6 +10,13 @@ export interface DownloadInfo {
 
 const NOT_FOUND = 404
 
+const FETCH_OPTIONS = {
+  headers: {
+    'User-Agent':
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+  },
+}
+
 export const config = {
   runtime: 'edge',
 }
@@ -32,7 +39,7 @@ export default async (req: Request): Promise<Response> => {
 
   console.log(`Fetching ${releasesUrl}`)
 
-  const releasesRes = await fetch(releasesUrl)
+  const releasesRes = await fetch(releasesUrl, FETCH_OPTIONS)
   const releases = (await releasesRes.json()) as ReleaseInfo[]
 
   const matched = releases.find(
@@ -52,7 +59,7 @@ export default async (req: Request): Promise<Response> => {
 
   console.log(`Fetching ${releaseUrl}`)
 
-  const downloadInfoRes = await fetch(releaseUrl)
+  const downloadInfoRes = await fetch(releaseUrl, FETCH_OPTIONS)
   const { download_url: downloadUrl } =
     (await downloadInfoRes.json()) as DownloadInfo
 
