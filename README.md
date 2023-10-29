@@ -35,6 +35,10 @@ Stable link that redirects to unstable [App Center][] download link via Vercel.
 
 [MIT][] © [JounQin][]@[1stG.me][]
 
+## Sponsorship
+
+[![Vercel](https://images.ctfassets.net/e5382hct74si/78Olo8EZRdUlcDUFQvnzG7/fa4cdb6dc04c40fceac194134788a0e2/1618983297-powered-by-vercel.svg)](https://vercel.com/guides/can-vercel-sponsor-my-open-source-project?utm_source=1stG&utm_campaign=oss)
+
 [1stg.me]: https://www.1stg.me
 [app center]: https://appcenter.ms
 [jounqin]: https://GitHub.com/JounQin
