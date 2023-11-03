@@ -1,5 +1,7 @@
 .*cache
 .vercel
+.yarn/*
+!.yarn/plugins
 *.tsbuildinfo
-/public/index.html
 node_modules
+/public/index.html
