@@ -13,7 +13,7 @@ const { data } = await request('POST /markdown', {
 await fs.writeFile(
   'public/index.html',
   /* HTML */ `
-    <!DOCTYPE html>
+    <!doctype html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
