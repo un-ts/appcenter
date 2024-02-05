@@ -44,19 +44,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@1stg/common-config@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "@1stg/common-config@npm:9.0.0"
+"@1stg/common-config@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "@1stg/common-config@npm:9.0.1"
   dependencies:
     "@1stg/babel-preset": "npm:^3.2.3"
     "@1stg/commitlint-config": "npm:^3.2.0"
-    "@1stg/eslint-config": "npm:^7.0.0"
+    "@1stg/eslint-config": "npm:^7.0.1"
     "@1stg/lint-staged": "npm:^3.4.1"
     "@1stg/markuplint-config": "npm:^3.0.1"
     "@1stg/prettier-config": "npm:^3.9.2"
     "@1stg/remark-preset": "npm:^2.0.0"
     "@1stg/simple-git-hooks": "npm:^0.2.3"
-    "@1stg/tsconfig": "npm:^2.3.2"
+    "@1stg/tsconfig": "npm:^2.3.3"
     "@babel/core": "npm:^7.22.5"
     "@commitlint/cli": "npm:^17.6.5"
     eslint: "npm:^8.43.0"
@@ -65,7 +65,7 @@ __metadata:
     prettier: "npm:^2.8.8"
     simple-git-hooks: "npm:^2.8.1"
     tslib: "npm:^2.5.3"
-  checksum: 10c0/c2521cbd3bf7307bfa04301025647e5391a54b7862c45a65be80f93967fb75fe4ff840b83eb8a8eb663cd4508803ec6921b2ae127db540500a33f42ac9301d8d
+  checksum: 10c0/f4e9765db525f900e3a032e3fcd2e9a0b09d03c487f0e6033c1d2977c3da694d2f5f86323c0398153ecca74bff914d16afa953f35c9847490feb293868d788e3
   languageName: node
   linkType: hard
 
@@ -76,9 +76,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@1stg/eslint-config@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@1stg/eslint-config@npm:7.0.0"
+"@1stg/eslint-config@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "@1stg/eslint-config@npm:7.0.1"
   dependencies:
     "@1stg/config": "npm:^0.2.1"
     "@angular-eslint/eslint-plugin": "npm:^16.0.3"
@@ -121,7 +121,7 @@ __metadata:
     eslint-plugin-yml: "npm:^1.8.0"
   peerDependencies:
     eslint: ">=8.0.0"
-  checksum: 10c0/ed1584d14bbe7ca8653a6585a82f75a5fe223af840325b296d041bfbd804024e9c79470e9ac82c30a4c8dcd9580750444cc14e38404f012d1cd38084c08f9ef6
+  checksum: 10c0/686b8dd7fa4209a643b1bc04b314102aa1541d5fc44f5480b3ef38b3c86d20123c3fe86ce4efb05d7d342f3b8933f2143da03b53fd4c724c2948755b601739e9
   languageName: node
   linkType: hard
 
@@ -212,6 +212,15 @@ __metadata:
   peerDependencies:
     typescript: ">=3.0.0"
   checksum: 10c0/e1b16a40def106765f75544e0984714a5f0a8cde3a66bf263c37ba56c0e12ba637dca530f7ee875e4839570f73277b3e636af32c924c914eb745affb49e38e2d
+  languageName: node
+  linkType: hard
+
+"@1stg/tsconfig@npm:^2.3.3":
+  version: 2.3.3
+  resolution: "@1stg/tsconfig@npm:2.3.3"
+  peerDependencies:
+    typescript: ">=3.0.0"
+  checksum: 10c0/41801fec98779027429c2d3be540ddde8ba538e20be927b21322a1181367deed905ca59b6a60353c34f9c67eaaae6fd041dad392f717e93587837e53fc62a9a2
   languageName: node
   linkType: hard
 
@@ -4282,7 +4291,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "appcenter@workspace:."
   dependencies:
-    "@1stg/common-config": "npm:^9.0.0"
+    "@1stg/common-config": "npm:^9.0.1"
     "@octokit/request": "npm:^8.1.4"
     "@types/web": "npm:^0.0.119"
     commitlint: "npm:^18.2.0"
