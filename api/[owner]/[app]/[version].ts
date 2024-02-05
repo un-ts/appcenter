@@ -4,6 +4,11 @@ export interface ReleaseInfo {
   short_version: string
 }
 
+export interface ErrorResponse {
+  code: string
+  message: string
+}
+
 export interface DownloadInfo {
   download_url: string
 }
@@ -40,7 +45,14 @@ export default async (req: Request): Promise<Response> => {
   console.log(`Fetching ${releasesUrl}`)
 
   const releasesRes = await fetch(releasesUrl, FETCH_OPTIONS)
-  const releases = (await releasesRes.json()) as ReleaseInfo[]
+
+  const releases = (await releasesRes.clone().json()) as
+    | ErrorResponse
+    | ReleaseInfo[]
+
+  if (!releasesRes.ok || !Array.isArray(releases)) {
+    return releasesRes
+  }
 
   const matched = releases.find(
     it => it.version === version || it.short_version === version,
@@ -60,8 +72,16 @@ export default async (req: Request): Promise<Response> => {
   console.log(`Fetching ${releaseUrl}`)
 
   const downloadInfoRes = await fetch(releaseUrl, FETCH_OPTIONS)
-  const { download_url: downloadUrl } =
-    (await downloadInfoRes.json()) as DownloadInfo
+
+  const downloadInfo = (await downloadInfoRes.json()) as
+    | DownloadInfo
+    | ErrorResponse
+
+  if (!downloadInfoRes.ok) {
+    return downloadInfoRes
+  }
+
+  const { download_url: downloadUrl } = downloadInfo as DownloadInfo
 
   console.log(`Redirect to ${downloadUrl}`)
 
