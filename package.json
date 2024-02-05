@@ -16,7 +16,7 @@
     "start": "vc dev"
   },
   "devDependencies": {
-    "@1stg/common-config": "^9.0.0",
+    "@1stg/common-config": "^10.0.0",
     "@octokit/request": "^8.1.4",
     "@types/web": "^0.0.119",
     "commitlint": "^18.2.0",
