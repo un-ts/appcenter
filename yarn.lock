@@ -3506,10 +3506,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/web@npm:^0.0.138":
-  version: 0.0.138
-  resolution: "@types/web@npm:0.0.138"
-  checksum: 10c0/76868dcae8acdf89c3039097c7b1e26842670f3c24afce55dec52ba1eb681d32d245e35174566860b10e02ff7255d0e618dc6737ba582031f203d3e7b7389b1e
+"@types/web@npm:^0.0.142":
+  version: 0.0.142
+  resolution: "@types/web@npm:0.0.142"
+  checksum: 10c0/761768bd96aa93b42a7916f7d345f549fda43e958cbe593bd8a6d65d59e0aaaa4bb59be7b4f3af4a826001963bfba2ceb7fdbe0245faabbed42027e45ef611ff
   languageName: node
   linkType: hard
 
@@ -4470,7 +4470,7 @@ __metadata:
   dependencies:
     "@1stg/common-config": "npm:^10.0.0"
     "@octokit/request": "npm:^8.1.6"
-    "@types/web": "npm:^0.0.138"
+    "@types/web": "npm:^0.0.142"
     commitlint: "npm:^18.6.0"
     eslint: "npm:^8.56.0"
     lint-staged: "npm:^15.2.1"
