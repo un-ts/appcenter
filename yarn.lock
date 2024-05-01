@@ -4475,7 +4475,7 @@ __metadata:
     eslint: "npm:^8.56.0"
     lint-staged: "npm:^15.2.1"
     npm-run-all: "npm:^4.1.5"
-    simple-git-hooks: "npm:^2.9.0"
+    simple-git-hooks: "npm:^2.11.1"
     tsx: "npm:^4.7.0"
     typescript: "npm:^5.3.3"
     vercel: "npm:^33.4.1"
@@ -13277,6 +13277,15 @@ __metadata:
   version: 4.1.0
   resolution: "signal-exit@npm:4.1.0"
   checksum: 10c0/41602dce540e46d599edba9d9860193398d135f7ff72cab629db5171516cfae628d21e7bfccde1bbfdf11c48726bc2a6d1a8fb8701125852fbfda7cf19c6aa83
+  languageName: node
+  linkType: hard
+
+"simple-git-hooks@npm:^2.11.1":
+  version: 2.11.1
+  resolution: "simple-git-hooks@npm:2.11.1"
+  bin:
+    simple-git-hooks: cli.js
+  checksum: 10c0/ba48c38bcfebc80f8050f36bf313dd6ec3c6d4ccee55b05c1e2c3b2983b13acf7baaca705de8b9b9a6d81a5934a7b22aca3d6116d5550000c97dc76b0219fa54
   languageName: node
   linkType: hard
 
