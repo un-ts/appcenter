@@ -6,7 +6,7 @@
   "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "license": "MIT",
   "private": true,
-  "packageManager": "yarn@4.1.0",
+  "packageManager": "yarn@4.7.0",
   "scripts": {
     "build": "tsx scripts/build",
     "lint": "run-p 'lint:*'",
