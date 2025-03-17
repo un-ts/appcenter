@@ -5,7 +5,7 @@ export interface ReleaseInfo {
 }
 
 export interface ErrorResponse {
-  code: string
+  code: number | string
   message: string
 }
 
@@ -26,7 +26,7 @@ export const config = {
   runtime: 'edge',
 }
 
-export default async (req: Request): Promise<Response> => {
+export default async function handler(req: Request): Promise<Response> {
   const { searchParams } = new URL(req.url)
 
   const owner = searchParams.get('owner')!
@@ -59,8 +59,11 @@ export default async (req: Request): Promise<Response> => {
   )
 
   if (!matched) {
-    return new Response(
-      `No matched version ${version} found for ${owner}/${app}`,
+    return Response.json(
+      {
+        code: NOT_FOUND,
+        message: `No matched version ${version} found for ${owner}/${app}`,
+      } satisfies ErrorResponse,
       {
         status: NOT_FOUND,
       },
@@ -73,15 +76,13 @@ export default async (req: Request): Promise<Response> => {
 
   const downloadInfoRes = await fetch(releaseUrl, FETCH_OPTIONS)
 
-  const downloadInfo = (await downloadInfoRes.json()) as
-    | DownloadInfo
-    | ErrorResponse
-
   if (!downloadInfoRes.ok) {
     return downloadInfoRes
   }
 
-  const { download_url: downloadUrl } = downloadInfo as DownloadInfo
+  const downloadInfo = (await downloadInfoRes.json()) as DownloadInfo
+
+  const { download_url: downloadUrl } = downloadInfo
 
   console.log(`Redirect to ${downloadUrl}`)
 
