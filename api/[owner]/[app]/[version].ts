@@ -26,7 +26,7 @@ export const config = {
   runtime: 'edge',
 }
 
-export default async (req: Request): Promise<Response> => {
+export default async function handler(req: Request): Promise<Response> {
   const { searchParams } = new URL(req.url)
 
   const owner = searchParams.get('owner')!
