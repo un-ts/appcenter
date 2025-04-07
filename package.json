@@ -6,7 +6,7 @@
   "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "license": "MIT",
   "private": true,
-  "packageManager": "yarn@4.7.0",
+  "packageManager": "yarn@4.8.1",
   "scripts": {
     "build": "tsx scripts/build",
     "lint": "run-p 'lint:*'",
@@ -16,13 +16,13 @@
     "start": "vc dev"
   },
   "devDependencies": {
-    "@1stg/common-config": "^11.0.4",
+    "@1stg/common-config": "^12.0.0",
     "@octokit/request": "^9.0.0",
-    "@types/web": "^0.0.213",
+    "@types/web": "^0.0.216",
     "commitlint": "^19.8.0",
     "eslint": "^9.22.0",
     "lint-staged": "^15.5.0",
-    "npm-run-all2": "^5.0.0",
+    "npm-run-all2": "^7.0.0",
     "simple-git-hooks": "^2.11.1",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
