@@ -16,13 +16,13 @@
     "start": "vc dev"
   },
   "devDependencies": {
-    "@1stg/common-config": "^12.0.1",
+    "@1stg/common-config": "^13.0.0",
     "@commitlint/cli": "^19.8.0",
     "@octokit/request": "^9.2.3",
-    "@types/web": "^0.0.217",
+    "@types/web": "^0.0.233",
     "eslint": "^9.24.0",
-    "lint-staged": "^15.5.1",
-    "npm-run-all2": "^7.0.2",
+    "lint-staged": "^16.0.0",
+    "npm-run-all2": "^8.0.0",
     "simple-git-hooks": "^2.12.1",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
