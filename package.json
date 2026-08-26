@@ -6,7 +6,7 @@
   "author": "JounQin (https://www.1stG.me) <admin@1stg.me>",
   "license": "MIT",
   "private": true,
-  "packageManager": "yarn@4.9.1",
+  "packageManager": "yarn@4.18.0",
   "scripts": {
     "build": "tsx scripts/build",
     "lint": "run-p 'lint:*'",
@@ -16,17 +16,17 @@
     "start": "vc dev"
   },
   "devDependencies": {
-    "@1stg/common-config": "^12.0.1",
-    "@commitlint/cli": "^19.8.0",
-    "@octokit/request": "^9.2.3",
-    "@types/web": "^0.0.217",
-    "eslint": "^9.24.0",
-    "lint-staged": "^15.5.1",
-    "npm-run-all2": "^7.0.2",
+    "@1stg/common-config": "^15.0.0",
+    "@commitlint/cli": "^21.0.0",
+    "@octokit/request": "^10.0.0",
+    "@types/web": "^0.0.354",
+    "eslint": "^10.0.0",
+    "lint-staged": "^17.0.0",
+    "npm-run-all2": "^9.0.0",
     "simple-git-hooks": "^2.12.1",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.3",
-    "vercel": "^41.6.0",
+    "typescript": "^7.0.0",
+    "vercel": "^59.0.0",
     "yarn-berry-deduplicate": "^6.1.1"
   },
   "resolutions": {
